@@ -1,13 +1,13 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joint;
 
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Arm extends SubsystemBase {
-    private ArmIO io;
+public class Joint extends SubsystemBase {
+    private JointIO io;
 
-    public Arm(ArmIO io) {
+    public Joint(JointIO io) {
         this.io = io;
     }
 
@@ -15,7 +15,7 @@ public class Arm extends SubsystemBase {
         return runEnd(
             () -> io.moveTo(angle),
             () -> io.stop()
-        ).until(() -> io.getAngle().isNear(angle, ArmConstants.SETPOINT_TOLERANCE));
+        ).until(() -> io.getAngle().isNear(angle, JointConstants.SETPOINT_TOLERANCE));
     }
 
     public Command stop() {

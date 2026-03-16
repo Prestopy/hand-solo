@@ -1,4 +1,4 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joint;
 
 import static edu.wpi.first.units.Units.*;
 import static frc.robot.RobotContainer.CANBUS;
@@ -9,7 +9,7 @@ import com.ctre.phoenix6.signals.InvertedValue;
 import edu.wpi.first.units.measure.Angle;
 import frc.robot.MotorConfiguration;
 
-public class ArmConstants {
+public class JointConstants {
     public static final Angle SETPOINT_TOLERANCE = Degrees.of(2.0);
     public class Configurations {
         public static final MotorConfiguration BASE_ARM = new MotorConfiguration(

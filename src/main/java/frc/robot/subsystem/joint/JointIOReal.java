@@ -1,4 +1,4 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joint;
 
 import static edu.wpi.first.units.Units.Amps;
 
@@ -10,10 +10,10 @@ import frc.lib.LazyTalon;
 import frc.lib.LazyTalonBuilder;
 import frc.robot.MotorConfiguration;
 
-public class ArmIOReal implements ArmIO {
+public class JointIOReal implements JointIO {
     private LazyTalon motor;
 
-    public ArmIOReal(MotorConfiguration config) {
+    public JointIOReal(MotorConfiguration config) {
         motor = new LazyTalonBuilder(
             config.MOTOR_ID(),
             config.CANBUS(),

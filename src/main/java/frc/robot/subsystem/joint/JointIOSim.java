@@ -1,4 +1,4 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joint;
 
 import static edu.wpi.first.units.Units.Degrees;
 
@@ -6,16 +6,16 @@ import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.AngularVelocity;
 import frc.robot.MotorConfiguration;
 
-public class ArmIOSim implements ArmIO {
-    Angle arm = Degrees.of(0);
+public class JointIOSim implements JointIO {
+    Angle joints = Degrees.of(0);
 
-    public ArmIOSim(MotorConfiguration config) {
+    public JointIOSim(MotorConfiguration config) {
 
     }
     
     @Override
     public Angle getAngle() {
-        return arm;
+        return joints;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class ArmIOSim implements ArmIO {
 
     @Override
     public void moveTo(Angle angle) {
-        arm = angle;
+        joints = angle;
     }
     
     @Override

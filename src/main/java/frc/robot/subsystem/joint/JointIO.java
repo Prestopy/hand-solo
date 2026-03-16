@@ -1,9 +1,9 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joint;
 
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.AngularVelocity;
 
-public interface ArmIO {    
+public interface JointIO {    
     Angle getAngle();
     void spin(AngularVelocity speed);
     void moveTo(Angle setpoint);

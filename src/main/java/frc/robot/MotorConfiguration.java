@@ -7,6 +7,7 @@ import edu.wpi.first.units.measure.Current;
 
 public record MotorConfiguration(
     int MOTOR_ID,
+    String CANBUS,
 
     Current STATOR_CURRENT_LIMIT,
     Current SUPPLY_CURRENT_LIMIT,

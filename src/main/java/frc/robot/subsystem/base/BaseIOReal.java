@@ -1,19 +1,44 @@
 package frc.robot.subsystem.base;
 
+import static edu.wpi.first.units.Units.Amps;
+
+import com.ctre.phoenix6.signals.StaticFeedforwardSignValue;
+
 import edu.wpi.first.units.measure.Angle;
 import frc.lib.LazyTalon;
+import frc.lib.LazyTalonBuilder;
 import frc.robot.MotorConfiguration;
 
 public class BaseIOReal implements BaseIO {
     private LazyTalon motor;
 
     public BaseIOReal(MotorConfiguration config) {
-        motor = new LazyTalon(config.MOTOR_ID(), config.INVERTED_VALUE());
+        motor = new LazyTalonBuilder(
+            config.MOTOR_ID(),
+            config.CANBUS(),
+            config.SENSOR_TO_MECHANISM_RATIO(), 
+            config.INVERTED_VALUE(),
+            config.STATOR_CURRENT_LIMIT().in(Amps),
+            config.SUPPLY_CURRENT_LIMIT().in(Amps)
+        )
+            .withPIDFConfiguration(
+                config.kP(),
+                config.kI(),
+                config.kP(),
+                config.kS(),
+                config.kG(),
+                config.kV(),
+                config.kA(),
+                config.GRAVITY_TYPE(), 
+                StaticFeedforwardSignValue.UseVelocitySign,
+                0
+            )
+            .build();
     }
 
     @Override
     public void moveTo(Angle setpoint) {
-        motor.moveTo(setpoint);
+        motor.setMMPositionTarget(setpoint, 0);
     }
 
     @Override
@@ -23,6 +48,6 @@ public class BaseIOReal implements BaseIO {
 
     @Override
     public Angle getAngle() {
-        return motor.getFeedbackPosition();
+        return motor.getPosition();
     }
 }

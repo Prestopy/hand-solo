@@ -1,6 +1,7 @@
 package frc.robot.subsystem.arm;
 
 import static edu.wpi.first.units.Units.*;
+import static frc.robot.RobotContainer.CANBUS;
 
 import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
@@ -13,6 +14,7 @@ public class ArmConstants {
     public class Configurations {
         public static final MotorConfiguration BASE_ARM = new MotorConfiguration(
             16,
+            CANBUS,
 
             Amps.of(30), // Stator limit
             Amps.of(30), // Supply limit
@@ -40,6 +42,7 @@ public class ArmConstants {
         );
         public static final MotorConfiguration PROXIMAL_ARM = new MotorConfiguration(
             16,
+            CANBUS,
 
             Amps.of(30), // Stator limit
             Amps.of(30), // Supply limit
@@ -67,6 +70,7 @@ public class ArmConstants {
         );
         public static final MotorConfiguration DISTAL_ARM = new MotorConfiguration(
             16,
+            CANBUS,
 
             Amps.of(30), // Stator limit
             Amps.of(30), // Supply limit

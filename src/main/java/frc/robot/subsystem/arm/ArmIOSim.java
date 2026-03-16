@@ -3,6 +3,7 @@ package frc.robot.subsystem.arm;
 import static edu.wpi.first.units.Units.Degrees;
 
 import edu.wpi.first.units.measure.Angle;
+import edu.wpi.first.units.measure.AngularVelocity;
 import frc.robot.MotorConfiguration;
 
 public class ArmIOSim implements ArmIO {
@@ -15,6 +16,11 @@ public class ArmIOSim implements ArmIO {
     @Override
     public Angle getAngle() {
         return arm;
+    }
+
+    @Override
+    public void spin(AngularVelocity speed) {
+        // asdf
     }
 
     @Override

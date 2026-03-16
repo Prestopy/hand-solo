@@ -15,6 +15,8 @@ import frc.robot.subsystem.base.Base;
 import frc.robot.subsystem.claw.Claw;
 
 public class RobotContainer {
+  public static final String CANBUS = "canaaronlockin";
+
   public static Base base;
   public static Arm baseArm;
   public static Arm proximalArm;
@@ -37,7 +39,7 @@ public class RobotContainer {
 
   private void configureBindings() {
     if (RobotBase.isReal()) {
-      
+      DriverControls.bind();
     } else {
       SimulationControls.bind();
     }

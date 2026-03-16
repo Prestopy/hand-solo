@@ -1,6 +1,7 @@
 package frc.robot.subsystem.claw;
 
 import static edu.wpi.first.units.Units.Amps;
+import static frc.robot.RobotContainer.CANBUS;
 
 import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
@@ -11,6 +12,7 @@ public class ClawConstants {
     public class Configurations {
         public static final MotorConfiguration CLAW = new MotorConfiguration(
             16,
+            CANBUS,
 
             Amps.of(30), // Stator limit
             Amps.of(30), // Supply limit

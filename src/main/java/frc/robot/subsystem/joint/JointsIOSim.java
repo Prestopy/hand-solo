@@ -1,11 +1,11 @@
-package frc.robot.subsystem.joints;
+package frc.robot.subsystem.joint;
 
 import static edu.wpi.first.units.Units.Degrees;
 
 import edu.wpi.first.units.measure.Angle;
 import frc.robot.MotorConfiguration;
 
-public class JointsIOSim implements JointsIO {
+public class JointsIOSim implements JointIO {
     Angle joints = Degrees.of(0);
 
     public JointsIOSim(MotorConfiguration config) {

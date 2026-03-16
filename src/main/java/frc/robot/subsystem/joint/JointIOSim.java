@@ -5,10 +5,10 @@ import static edu.wpi.first.units.Units.Degrees;
 import edu.wpi.first.units.measure.Angle;
 import frc.robot.MotorConfiguration;
 
-public class JointsIOSim implements JointIO {
+public class JointIOSim implements JointIO {
     Angle joints = Degrees.of(0);
 
-    public JointsIOSim(MotorConfiguration config) {
+    public JointIOSim(MotorConfiguration config) {
 
     }
     

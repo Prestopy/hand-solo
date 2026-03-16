@@ -1,9 +1,6 @@
 package frc.robot;
 
 import static edu.wpi.first.units.Units.Degrees;
-import static frc.robot.RobotContainer.baseArm;
-import static frc.robot.RobotContainer.distalArm;
-import static frc.robot.RobotContainer.proximalArm;
 
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.wpilibj.GenericHID;

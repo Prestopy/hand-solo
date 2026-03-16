@@ -1,13 +1,13 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joints;
 
 import edu.wpi.first.units.measure.Angle;
 import frc.lib.LazyTalon;
 import frc.robot.MotorConfiguration;
 
-public class ArmIOReal implements ArmIO {
+public class JointsIOReal implements JointsIO {
     private LazyTalon motor;
 
-    public ArmIOReal(MotorConfiguration config) {
+    public JointsIOReal(MotorConfiguration config) {
         motor = new LazyTalon(config.MOTOR_ID(), config.INVERTED_VALUE());
     }
 

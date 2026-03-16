@@ -1,13 +1,13 @@
-package frc.robot.subsystem.arm;
+package frc.robot.subsystem.joints;
 
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Arm extends SubsystemBase {
-    private ArmIO io;
+public class Joints extends SubsystemBase {
+    private JointsIO io;
 
-    public Arm(ArmIO io) {
+    public Joints(JointsIO io) {
         this.io = io;
     }
 

@@ -1,11 +1,15 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
+import static edu.wpi.first.units.Units.Degrees;
+
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.subsystem.base.BaseConstants;
 
 public class DriverControls {
-    private static XboxController controller = new XboxController(0);
+    private static CommandXboxController controller = new CommandXboxController(0);
 
     public static void bind() {
-        
+        controller.leftTrigger().whileTrue(RobotContainer.proximalJoint.spin(BaseConstants.MAX_SPEED));
+        controller.rightTrigger().whileTrue(RobotContainer.proximalJoint.spin(BaseConstants.MAX_SPEED.times(-1)));
     }
 }

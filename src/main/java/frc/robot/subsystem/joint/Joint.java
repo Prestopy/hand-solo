@@ -1,6 +1,7 @@
 package frc.robot.subsystem.joint;
 
 import edu.wpi.first.units.measure.Angle;
+import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -16,6 +17,13 @@ public class Joint extends SubsystemBase {
             () -> io.moveTo(angle),
             () -> io.stop()
         ).until(() -> io.getAngle().isNear(angle, JointConstants.SETPOINT_TOLERANCE));
+    }
+
+    public Command spin(AngularVelocity speed) {
+        return runEnd(
+            () -> io.spin(speed),
+            () -> io.stop()
+        );
     }
 
     public Command stop() {

@@ -5,6 +5,7 @@ import static edu.wpi.first.units.Units.Amps;
 import com.ctre.phoenix6.signals.StaticFeedforwardSignValue;
 
 import edu.wpi.first.units.measure.Angle;
+import edu.wpi.first.units.measure.AngularVelocity;
 import frc.lib.LazyTalon;
 import frc.lib.LazyTalonBuilder;
 import frc.robot.MotorConfiguration;
@@ -39,6 +40,11 @@ public class BaseIOReal implements BaseIO {
     @Override
     public void moveTo(Angle setpoint) {
         motor.setMMPositionTarget(setpoint, 0);
+    }
+
+    @Override
+    public void spin(AngularVelocity speed) {
+        motor.setMMVelocityTarget(speed, 0);
     }
 
     @Override

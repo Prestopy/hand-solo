@@ -36,11 +36,7 @@ public class RobotContainer {
   }
 
   private void configureBindings() {
-    if (RobotBase.isReal()) {
-      DriverControls.bind();
-    } else {
-      SimulationControls.bind();
-    }
+    DriverControls.bind();
   }
 
   public Command getAutonomousCommand() {

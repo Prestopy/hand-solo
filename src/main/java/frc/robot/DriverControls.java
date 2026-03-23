@@ -1,7 +1,5 @@
 package frc.robot;
 
-import static edu.wpi.first.units.Units.Degrees;
-
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystem.base.BaseConstants;
 

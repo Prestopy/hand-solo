@@ -2,16 +2,19 @@ package frc.robot.subsystem.base;
 
 import static edu.wpi.first.units.Units.Amps;
 import static edu.wpi.first.units.Units.DegreesPerSecond;
+import static edu.wpi.first.units.Units.Meters;
 import static frc.robot.RobotContainer.CANBUS;
 
 import com.ctre.phoenix6.signals.GravityTypeValue;
 import com.ctre.phoenix6.signals.InvertedValue;
 
 import edu.wpi.first.units.measure.AngularVelocity;
+import edu.wpi.first.units.measure.Distance;
 import frc.robot.MotorConfiguration;
 
 public class BaseConstants {
     public static final AngularVelocity MAX_SPEED = DegreesPerSecond.of(45); // 90 degrees per second
+    public static final Distance BASE_HEIGHT = Meters.of(0.2); // 20 cm
 
     public class Configurations {
         public static final MotorConfiguration BASE = new MotorConfiguration(

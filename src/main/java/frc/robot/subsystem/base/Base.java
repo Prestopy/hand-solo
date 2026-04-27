@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Base extends SubsystemBase {
- private BaseIO io;
+    private BaseIO io;
 
     public Base(BaseIO io) {
         this.io = io;

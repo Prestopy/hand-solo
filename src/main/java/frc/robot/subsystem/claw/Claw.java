@@ -1,21 +1,10 @@
 package frc.robot.subsystem.claw;
 
-import edu.wpi.first.units.measure.Angle;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.MotorSubsystem;
+import frc.lib.TalonIO;
 
-public class Claw extends SubsystemBase {
- private ClawIO io;
-
-    public Claw(ClawIO io) {
-        this.io = io;
-    }
-
-    public Command setAngle(Angle angle) {
-        return runOnce(() -> io.moveTo(angle));
-    }
-
-    public Command stop() {
-        return runOnce(() -> io.stop());
+public class Claw extends MotorSubsystem<TalonIO> {
+    public Claw(TalonIO io) {
+        super(io);
     }
 }

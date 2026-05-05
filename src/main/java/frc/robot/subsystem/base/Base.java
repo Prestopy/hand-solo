@@ -1,26 +1,10 @@
 package frc.robot.subsystem.base;
 
-import edu.wpi.first.units.measure.Angle;
-import edu.wpi.first.units.measure.AngularVelocity;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.MotorSubsystem;
+import frc.lib.TalonIO;
 
-public class Base extends SubsystemBase {
-    private BaseIO io;
-
-    public Base(BaseIO io) {
-        this.io = io;
-    }
-
-    public Command setAngle(Angle angle) {
-        return runOnce(() -> io.moveTo(angle));
-    }
-
-    public Command spin(AngularVelocity speed) {
-        return runEnd(() -> io.spin(speed), () -> io.stop());
-    }
-
-    public Command stop() {
-        return runOnce(() -> io.stop());
+public class Base extends MotorSubsystem<TalonIO> {
+    public Base(TalonIO io) {
+        super(io);
     }
 }

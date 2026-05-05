@@ -4,13 +4,14 @@ import static edu.wpi.first.units.Units.Degrees;
 
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.AngularVelocity;
+import frc.lib.TalonIO;
 import frc.robot.MotorConfiguration;
 
-public class JointIOSim implements JointIO {
+public class JointIOSim extends TalonIO {
     Angle joints = Degrees.of(0);
 
     public JointIOSim(MotorConfiguration config) {
-
+        super(config);
     }
     
     @Override
@@ -19,7 +20,7 @@ public class JointIOSim implements JointIO {
     }
 
     @Override
-    public void spin(AngularVelocity speed) {
+    public void spinAt(AngularVelocity speed) {
         // asdf
     }
 

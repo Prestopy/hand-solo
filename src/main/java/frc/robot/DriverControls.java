@@ -7,7 +7,7 @@ public class DriverControls {
     private static CommandXboxController controller = new CommandXboxController(0);
 
     public static void bind() {
-        controller.leftTrigger().whileTrue(RobotContainer.proximalJoint.spin(BaseConstants.MAX_SPEED));
-        controller.rightTrigger().whileTrue(RobotContainer.proximalJoint.spin(BaseConstants.MAX_SPEED.times(-1)));
+        controller.leftTrigger().whileTrue(RobotContainer.proximalJoint.spinAt(BaseConstants.MAX_SPEED));
+        controller.rightTrigger().whileTrue(RobotContainer.proximalJoint.spinAt(BaseConstants.MAX_SPEED.times(-1)));
     }
 }

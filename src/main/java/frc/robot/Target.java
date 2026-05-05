@@ -29,7 +29,7 @@ public class Target {
      * Calculates the angles needed to reach the target position.
      * @return an array of angles in the order of base rotation, proximal angle, and distal angle.
      */
-    public Angle[] calculateConfiguration() {
+    public HandPlacement calculateConfiguration() {
         /**
          * The distance from the base to the target, ignoring height.
          * This is the hypotenuse of the triangle formed by the x and y coordinates of the target.
@@ -111,7 +111,7 @@ public class Target {
         if (flip) A2 = Radians.of(Math.PI).plus(A2);
         else A2 = Radians.of(Math.PI).plus(A2).times(-1);
 
-        return new Angle[]{baseRotation, A1, A2};
+        return new HandPlacement(baseRotation, A1, A2);
     }
 
     private double constrain(double val, double min, double max) {

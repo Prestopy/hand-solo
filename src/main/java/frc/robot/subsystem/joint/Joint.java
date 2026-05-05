@@ -13,17 +13,11 @@ public class Joint extends SubsystemBase {
     }
 
     public Command setAngle(Angle angle) {
-        return runEnd(
-            () -> io.moveTo(angle),
-            () -> io.stop()
-        ).until(() -> io.getAngle().isNear(angle, JointConstants.SETPOINT_TOLERANCE));
+        return runOnce(() -> io.moveTo(angle));
     }
 
     public Command spin(AngularVelocity speed) {
-        return runEnd(
-            () -> io.spin(speed),
-            () -> io.stop()
-        );
+        return runEnd(() -> io.spin(speed), () -> io.stop());
     }
 
     public Command stop() {

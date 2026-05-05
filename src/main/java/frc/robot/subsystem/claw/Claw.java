@@ -12,10 +12,7 @@ public class Claw extends SubsystemBase {
     }
 
     public Command setAngle(Angle angle) {
-        return runEnd(
-            () -> io.moveTo(angle),
-            () -> io.stop()
-        );
+        return runOnce(() -> io.moveTo(angle));
     }
 
     public Command stop() {

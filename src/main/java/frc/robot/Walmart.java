@@ -10,17 +10,17 @@ import edu.wpi.first.units.measure.Distance;
 import frc.robot.subsystem.joint.ArmConstants;
 import frc.robot.subsystem.base.BaseConstants;
 
-public class Target {
+public class Walmart {
     private Translation3d target = null;
 
-    public Target() {}
+    public Walmart() {}
 
     /**
      * Where (0, 0, 0) is the base, and (0, 0, h) is the first joint.
      * @param position
      * @return
      */
-    public Target withPosition(Translation3d position) {
+    public Walmart withPosition(Translation3d position) {
         target = position;
         return this;
     }
@@ -111,7 +111,7 @@ public class Target {
         if (flip) A2 = Radians.of(Math.PI).plus(A2);
         else A2 = Radians.of(Math.PI).plus(A2).times(-1);
 
-        return new HandPlacement(baseRotation, A1, A2);
+        return HandPlacement.of(baseRotation, A1, A2);
     }
 
     private double constrain(double val, double min, double max) {

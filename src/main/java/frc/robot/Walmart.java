@@ -11,9 +11,14 @@ import frc.robot.subsystem.joint.ArmConstants;
 import frc.robot.subsystem.base.BaseConstants;
 
 public class Walmart {
-    private Translation3d target = null;
+    private Translation3d target = Translation3d.kZero;
 
     public Walmart() {}
+
+    public Walmart add(Translation3d position) {
+        target = target.plus(position);
+        return this;
+    }
 
     /**
      * Where (0, 0, 0) is the base, and (0, 0, h) is the first joint.
@@ -44,7 +49,7 @@ public class Walmart {
         /**
          * The plane perpendicular to the base that contains the target and the base joint
          */
-        Translation2d slicedTarget = new Translation2d(baseToTargetDist.in(Meters), target.getY()); // ignoring base rotation
+        Translation2d slicedTarget = new Translation2d(baseToTargetDist.in(Meters), target.getZ()); // ignoring base rotation
 
         /**
          * The position of the target relative to the base joint, in the plane of the arm.
@@ -75,8 +80,8 @@ public class Walmart {
         */
         Angle A1 = Radians.of(Math.acos(
             constrain(
-                (sqrt(L1) + sqrt(LD) - sqrt(L2)) /
-                (sqrt(L1)*sqrt(LD)*2)
+                (sq(L1) + sq(LD) - sq(L2)) /
+                (2 * Math.sqrt(sq(L1)) * Math.sqrt(sq(LD)))
             , -1.0, 1.0)
         ));
 
@@ -103,8 +108,8 @@ public class Walmart {
         */
         Angle A2 = Radians.of(Math.acos(
             constrain(
-                (sqrt(L1) + sqrt(L2) - sqrt(LD)) /
-                (sqrt(L1)*sqrt(L2)*2)
+                (sq(L1) + sq(L2) - sq(LD)) /
+                (2 * Math.sqrt(sq(L1)) * Math.sqrt(sq(L2)))
             , -1.0, 1.0)
         ));
 
@@ -123,8 +128,9 @@ public class Walmart {
      * @param d
      * @return
      */
-    private double sqrt(Distance d) {
-        return Math.sqrt(d.in(Meters));
+    private double sq(Distance d) {
+        double v = d.in(Meters);
+        return v * v;
     }
 
     public Translation3d getPosition() {

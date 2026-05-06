@@ -1,5 +1,7 @@
 package frc.lib;
 
+import java.util.function.Supplier;
+
 import edu.wpi.first.units.measure.Angle;
 import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -14,6 +16,10 @@ public class MotorSubsystem<T extends MotorIO> extends SubsystemBase {
 
     public Command moveTo(Angle angle) {
         return runOnce(() -> io.moveTo(angle));
+    }
+
+    public Command follow(Supplier<Angle> angleSupplier) {
+        return run(() -> io.moveTo(angleSupplier.get()));
     }
 
     public Command spinAt(AngularVelocity speed) {
